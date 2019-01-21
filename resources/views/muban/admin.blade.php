@@ -83,20 +83,20 @@
 				<!-- 管理员管理-->
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h2 class="panel-title"><span class="glyphicon glyphicon-user"></span> 管理员管理</h2>
+						<h2 class="panel-title" id="user"><span class="glyphicon glyphicon-user"></span> 管理员管理</h2>
 					</div>
 					<ul class="list-group">
 					    <li class="list-group-item"><a href="{{ asset('admin/user') }}">管理员列表</a></li>
 					 	
 					</ul>
 				</div>
-				<!-- 会员管理 -->
+				<!-- 图片管理 -->
 				<div class="panel panel-primary">
 					<div class="panel-heading">
-						<h2 class="panel-title"><span class="glyphicon glyphicon-user"></span> 会员管理</h2>
+						<h2 class="panel-title" id="pic"><span class="glyphicon glyphicon-user"></span> 图片管理</h2>
 					</div>
 					<ul class="list-group">
-					    <li class="list-group-item"><a href="">会员列表</a></li>
+					    <li class="list-group-item"><a href="{{ asset('admin/pic') }}">图片列表</a></li>
 					 	
 					</ul>
 				</div>
@@ -194,12 +194,27 @@
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
 </body>
+<?php
+//获取URL地址 参数部分
+$str = $_SERVER['REDIRECT_URL'];
+//将URL地址栏处理成数组部分
+$arr = explode('/',$str);
+
+//var_dump($arr);
+//取出控制器
+$path=$arr['2'];
+
+?>
 <script>
 	// 菜单切换
 	$(".panel-title").click(function(){
 		$(".list-group").hide();
 		$(this).parent().next().toggle(500);
 	});
+	//让对应菜单点击
+	@if($path)
+	$("#{{$path}}").click();
+	@endif
 	
 </script>
 </html>

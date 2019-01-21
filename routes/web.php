@@ -126,8 +126,12 @@ Route::post('admin/check',"Admin\LoginController@check");
 //通过路由组，提取公共命名空间 公共的前缀  中间件
 Route::group(['namespace'=>"Admin","prefix"=>"admin","middleware"=>"adminLogin"],function(){
 	Route::get('','IndexController@index');
+	//后台用户管理模块
 	Route::resource('user','UserController');
+	//后台商品管理模块
 	Route::resource('goods','GoodsController');
+	//后台图片管理模块
+	Route::resource('pic','PicController');
 	
 });
 Route::group(['namespace'=>"Home"],function(){
@@ -162,7 +166,7 @@ Route::post('upload','UserController@upload');
 Route::get('cookie','UserController@cookie');*/
 
 //响应
-Route::get('xiang',function(){
+//Route::get('xiang',function(){
 	
 	//响应字符串
 	//return "123";
@@ -194,15 +198,17 @@ Route::get('xiang',function(){
 	#重启服务
 	
 	//文件查看
-	return response()->file('./Uploads/a.png');
+	//return response()->file('./Uploads/a.png');
 	
-});
+//});
 
 //视图
-Route::get('shitu','ShiTuController@index');
-Route::get('shitu1','ShiTuController@index1');
-Route::get('buju','ShiTuController@buju');
-Route::get('baohan','ShiTuController@baohan');
+//Route::get('shitu','ShiTuController@index');
+//Route::get('shitu1','ShiTuController@index1');
+//Route::get('buju','ShiTuController@buju');
+//Route::get('baohan','ShiTuController@baohan');
 
+//数据库操作
+Route::get('/','DataController@index');
 
 
