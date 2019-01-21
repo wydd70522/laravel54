@@ -129,7 +129,7 @@
 					    <li class="list-group-item"><a href="">订单列表</a></li> 	
 					</ul>
 				</div>
-				<!-- 评论管理 -->、
+				<!-- 评论管理 -->
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<h2 class="panel-title"><span class="glyphicon glyphicon-envelope"></span> 评论管理</h2>
@@ -195,6 +195,7 @@
 	</div><!-- /.modal -->
 </body>
 <?php
+//var_dump($_SERVER); 商品详情页面登录 后又返回到详情页
 //获取URL地址 参数部分
 $str = $_SERVER['REDIRECT_URL'];
 //将URL地址栏处理成数组部分
@@ -202,7 +203,10 @@ $arr = explode('/',$str);
 
 //var_dump($arr);
 //取出控制器
-$path=$arr['2'];
+$path=!empty($arr['2'])?$arr['2']:'';  //isset
+#模板标签可直接用在JS里#
+
+//echo $path;
 
 ?>
 <script>
@@ -211,7 +215,7 @@ $path=$arr['2'];
 		$(".list-group").hide();
 		$(this).parent().next().toggle(500);
 	});
-	//让对应菜单点击
+	//让对应菜单点击 控制器是哪个 哪个点击
 	@if($path)
 	$("#{{$path}}").click();
 	@endif

@@ -48,7 +48,7 @@
 							<td>pass1</td>
 							<td>2016-10-10 10:10:10</td>
 							<td><span class="btn btn-success">开启</span></td>
-							<td><a href="pic/1/edit" class="glyphicon glyphicon-pencil"></a>&nbsp;&nbsp;&nbsp;<a href="" class="glyphicon glyphicon-trash"></a></td>
+							<td><a href="/admin/pic/1/edit" class="glyphicon glyphicon-pencil"></a>&nbsp;&nbsp;&nbsp;<a href="" class="glyphicon glyphicon-trash"></a></td>
 						</tr>
 						<tr>
 							<td><input type="checkbox" name="" id=""></td>
