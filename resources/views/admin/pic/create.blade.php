@@ -2,6 +2,14 @@
 
 @section('main')
 
+<!-- 引入CSS -->
+<link rel="stylesheet" href="/up/uploadify.css">
+
+<!-- 引入JQ -->
+<!--引入过了-->
+<!-- 引入文件上传插件 -->
+<script src="/up/jquery.uploadify.min.js"></script>
+
 
 <!-- 内容 -->
 			<div class="col-md-10">
@@ -18,23 +26,29 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<a href="index.html" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> 图片页面</a>
-						<a href="" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> 添加图片</a>
+						<a href="{{ asset('admin/pic/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> 添加图片</a>
 						
 						
 
 
 					</div>
 					<div class="panel-body">
-						<form action="">
+						<form action="{{ asset('admin/pic') }}" method="post">
 							<div class="form-group">
-								<label for="">User</label>
-								<input type="text" name="" class="form-control" id="">
+							{{csrf_field()}}
+								<label for="">Title</label>
+								<input type="text" name="title" class="form-control" id="">
 							</div>
-
+							
 							<div class="form-group">
-								<label for="">PASS</label>
-								<input type="password" name="" class="form-control" id="">
+								<label for="">IMG</label>
+								
+								<input type="file" name="" id="uploads">
+								<div id="main"></div>
+								
+								<input type="hidden" name="img" id="imgs">
 							</div>
+		
 
 							<div class="form-group">
 								<input type="submit" value="提交" class="btn btn-success">
@@ -46,4 +60,42 @@
 					
 				</div>
 			</div>
+			<script>
+				//当所有HTML代码都加载完毕
+				$(function(){
+					//声明字符串
+					var imgs="";
+					
+					//使用 uploadify 插件
+					$('#uploads').uploadify({
+						//设置文本
+						'buttonText':'图片上传 美照',
+						//设置文件传输数据
+						'formData':{
+							'_token':'{{csrf_token()}}',
+							'files':'Goods',
+						},
+						//上传的flash动画
+						'swf' :"/up/uploadify.swf",
+						//文件上传地址
+						'uploader':"{{ asset('admin/shangchuan') }}",
+						//当文件上传成功
+						'onUploadSuccess':function(file,data,response){
+						
+							//alert(data);
+							
+							//拼接字符串
+							imgs="<img width='200px' src='/Uploads/Goods/"+data+"'>";
+							//展示图片
+							$("#main").html(imgs);
+							//隐藏域传递数据
+							$('#imgs').val(data);
+							
+						}
+						
+					});
+					
+				});
+			
+			</script>
 @endsection

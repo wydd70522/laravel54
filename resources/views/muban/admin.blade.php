@@ -193,6 +193,7 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
 </body>
 <?php
 //var_dump($_SERVER); 商品详情页面登录 后又返回到详情页
@@ -203,10 +204,14 @@ $arr = explode('/',$str);
 
 //var_dump($arr);
 //取出控制器
+
 $path=!empty($arr['2'])?$arr['2']:'';  //isset
 #模板标签可直接用在JS里#
 
 //echo $path;
+
+$path=!empty($arr['2'])?$arr['2']:'';
+
 
 ?>
 <script>
