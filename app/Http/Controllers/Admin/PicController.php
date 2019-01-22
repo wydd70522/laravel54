@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\DB;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 //后台图片管理控制器
 class PicController extends Controller
@@ -33,7 +34,18 @@ class PicController extends Controller
 	
 	
 	//添加图片操作  POST
-	public function store(){
+	public function store(Request $request){
+		//获取数据
+		//dd($request->all());
+		$a = DB::insert("INSERT INTO pic VALUES (?,?,?)",[null,$_POST['title'],$_POST['img']]);
+		//判断是否插入成功
+		if($a){
+			//成功进行跳转
+			return redirect("admin/pic");
+		}else{
+			//失败返回上一个页面
+			return back();
+		}
 		
 	}
 	

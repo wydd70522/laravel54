@@ -193,6 +193,7 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
 </body>
 <?php
 //获取URL地址 参数部分
@@ -202,7 +203,7 @@ $arr = explode('/',$str);
 
 //var_dump($arr);
 //取出控制器
-$path=$arr['2'];
+$path=!empty($arr['2'])?$arr['2']:'';
 
 ?>
 <script>

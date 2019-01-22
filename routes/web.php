@@ -133,6 +133,9 @@ Route::group(['namespace'=>"Admin","prefix"=>"admin","middleware"=>"adminLogin"]
 	//后台图片管理模块
 	Route::resource('pic','PicController');
 	
+	//设置文件上传的方法
+	Route::any('shangchuan','CommonController@upload');
+	
 });
 Route::group(['namespace'=>"Home"],function(){
 	//前台首页

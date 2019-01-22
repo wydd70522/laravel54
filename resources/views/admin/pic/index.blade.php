@@ -20,7 +20,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 						<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> 批量删除</button>
-						<a href="pic/create" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> 添加图片</a>
+						<a href="{{ asset('admin/pic/create') }}" class="btn btn-success"><span class="glyphicon glyphicon-plus"></span> 添加图片</a>
 						
 						<p class="pull-right tots" >共有 10 条数据</p>
 						<form action="" class="form-inline pull-right">
