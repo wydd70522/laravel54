@@ -45,7 +45,6 @@
 							<td>{{$value->id}}</td>
 							<td>{{$value->title}}</td>
 							<td><img width="200px" src="/Uploads/Goods/{{$value->img}}" alt=""></td>
-			
 							<td><a href="/admin/pic/1/edit" class="glyphicon glyphicon-pencil"></a>&nbsp;&nbsp;&nbsp;<a href="javascript:;" onclick="del(this,{{$value->id}})" class="glyphicon glyphicon-trash"></a></td>
 						</tr>
 						@endforeach

@@ -76,7 +76,9 @@ class PicController extends Controller
 		 //删除操作 1成功  0失败
 		 if(DB::delete('delete from pic where id=?',[$id])){
 			//删除成功,删除图片
-			 unlink("./Uploads/Goods/".$data[0]->img);
+			if(!empty($data[0]->img)){
+				unlink("./Uploads/Goods/".$data[0]->img);
+			 }
 			 return '1';
 		 }else{
 			 return '0';

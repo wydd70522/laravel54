@@ -36,6 +36,7 @@ class CommonController extends Controller
 			// echo  $newFile;
 			 //移动到指定目录
 			$file -> move('./Uploads/'.$dir,$newFile);
+			//$newFile0='/Uploads/'.$dir.'/'.$newFile;
 			return $newFile; //echo
 			 
 		 }
