@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 //后台图片管理控制器
 class PicController extends Controller
 {
@@ -12,10 +13,15 @@ class PicController extends Controller
 	//后台图片首页方法  GET
     public function index()
     {
+		//从数据库中读取相关数据
+		$data = DB::select("select * from pic");
+		//var_dump($data);
+
+
 
 		//加载图片管理界面
 
-			return view('admin.pic.index');
+			return view('admin.pic.index')->with('data',$data);
     }
 	
 	//后台图片管理修改页面 GET
@@ -55,8 +61,26 @@ class PicController extends Controller
 	}
 	
 	//删除图片操作  DELETE
-	public function destory(){
+	public function destroy(Request $request){
 		
+		//var_dump($request->all());
+		//获取删除id
+		$id=$request->input('id');
+		
+		//查询图片
+		$data=DB::select("select * from pic where id=?",[$id]);
+		//var_dump($data);exit;
+		//echo $data[0]->img;
+		//exit;
+		
+		 //删除操作 1成功  0失败
+		 if(DB::delete('delete from pic where id=?',[$id])){
+			//删除成功,删除图片
+			 unlink("./Uploads/Goods/".$data[0]->img);
+			 return '1';
+		 }else{
+			 return '0';
+		 }
 	}
 	
 	

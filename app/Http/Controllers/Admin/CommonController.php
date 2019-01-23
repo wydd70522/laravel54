@@ -13,6 +13,7 @@ class CommonController extends Controller
 	//文件上传的方法
 	public function upload(Request $request){
 		 //获取用户上传内容
+		 //dump($request->all());
 		$file = $request->file('Filedata');
 		
 		//判断目录是否存在

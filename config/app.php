@@ -128,7 +128,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | Autoloaded Service Providers 自动加载的服务提供程序
     |--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
@@ -136,7 +136,7 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
+	//提供者
     'providers' => [
 
         /*
@@ -164,7 +164,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-
+		
         /*
          * Package Service Providers...
          */
@@ -178,12 +178,14 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+		
+		
 
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Class Aliases
+    | Class Aliases 类别名
     |--------------------------------------------------------------------------
     |
     | This array of class aliases will be registered when this application
